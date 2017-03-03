@@ -157,6 +157,7 @@ void* thread_pool_function(void* arg)
   {
       //线程队列为空等待队列添加任务
       pthread_mutex_lock(&(thread_pool->mutex_lock));
+      
       //防止载多核处理器上产生虚假唤醒
       //Some implementations, particularly on a multi-processor, may sometimes cause multiple threads to wake up when the condition variable is signaled  simultaneously  on
       // different processors.

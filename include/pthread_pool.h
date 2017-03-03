@@ -32,7 +32,7 @@ typedef struct thread_worker
 typedef struct thread_pool
 {
   pthread_mutex_t mutex_lock;           //队列互斥锁
-  pthread_cond_t  queue_not_empty;          //队列条件变量
+  pthread_cond_t  queue_not_empty;      //队列条件变量
   pthread_cond_t  queue_empty;          //队列为空条件变量（销毁线程池时用于等待非空闲线程退出）
   pthread_cond_t  queue_not_full;       //队列不为满的条件变量
 
@@ -63,7 +63,7 @@ thread_pool_st* thread_pool_init(uint16_t thread_num, uint16_t queue_max_num);
 
 /******************************************************************************
 *函数名：create_detach_thread
-*描述：线程池中线程函数
+*描述：创建分离线程
 *输入参数：
 *       thread_pool_st *thread_pool
 *       uint16_t thread_idx
